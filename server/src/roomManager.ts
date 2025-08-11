@@ -1,5 +1,5 @@
-import { Room } from './types';
-import { makeCode } from './utils';
+import { Room } from './types.js';
+import { makeCode } from './utils.js';
 
 export const rooms: Record<string, Room> = {};
 

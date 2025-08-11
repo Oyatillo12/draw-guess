@@ -1,7 +1,6 @@
 import { Server } from 'socket.io';
-import { rooms } from './roomManager';
-import { pickRandomWords, calculateScore, clearIntervals } from './utils';
-import { Room } from './types';
+import { rooms } from './roomManager.js';
+import { pickRandomWords, clearIntervals } from './utils.js';
 
 export function startNextRound(io: Server, code: string) {
   const room = rooms[code];

@@ -1,4 +1,4 @@
-import { allWords } from './constants';
+import { allWords } from './constants.js';
 
 export function makeCode(length = 4) {
   return Math.random()

@@ -1,7 +1,7 @@
 import { Server, Socket } from 'socket.io';
-import { createRoom, getRoom, deleteRoom, rooms } from './roomManager';
-import { endRound, startDrawingPhase, startNextRound } from './gamePhases';
-import { calculateScore, clearIntervals } from './utils';
+import { createRoom, getRoom, deleteRoom, rooms } from './roomManager.js';
+import { endRound, startDrawingPhase, startNextRound } from './gamePhases.js';
+import { calculateScore, clearIntervals } from './utils.js';
 
 export function registerSocketHandlers(io: Server) {
   io.on('connection', (socket) => {
@@ -40,7 +40,7 @@ export function registerSocketHandlers(io: Server) {
         playerName: name,
         strokesCount: room.strokes.length,
         phase: room.phase,
-        drawerId: room.drawerId
+        drawerId: room.drawerId,
       });
 
       io.to(code).emit('updatePlayers', Object.values(room.players));
@@ -54,21 +54,21 @@ export function registerSocketHandlers(io: Server) {
     socket.on('stroke', ({ code, stroke }) => {
       const room = getRoom(code);
       if (!room || room.drawerId !== socket.id || room.phase !== 'drawing') {
-        console.log('Stroke rejected:', { 
-          hasRoom: !!room, 
-          isDrawer: room?.drawerId === socket.id, 
+        console.log('Stroke rejected:', {
+          hasRoom: !!room,
+          isDrawer: room?.drawerId === socket.id,
           phase: room?.phase,
-          socketId: socket.id 
+          socketId: socket.id,
         });
         return;
       }
 
-      console.log('Stroke received from drawer:', { 
-        drawerId: socket.id, 
-        strokeId: stroke.id, 
-        points: stroke.points.length 
+      console.log('Stroke received from drawer:', {
+        drawerId: socket.id,
+        strokeId: stroke.id,
+        points: stroke.points.length,
       });
-      
+
       room.strokes.push(stroke);
       socket.to(code).emit('stroke', stroke);
       console.log('Stroke broadcasted to other players');
