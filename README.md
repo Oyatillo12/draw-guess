@@ -2,7 +2,7 @@
 
 A beautiful, real-time multiplayer drawing and guessing game built with React, TypeScript, Socket.IO, and Tailwind CSS.
 
-## ✨ Features
+## Features
 
 - **Real-time Multiplayer**: Play with friends in real-time using WebSocket connections
 - **Beautiful UI**: Modern, responsive design with smooth animations
@@ -22,7 +22,7 @@ A beautiful, real-time multiplayer drawing and guessing game built with React, T
   - Score tracking and leaderboards
   - Chat system with different message types
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -73,7 +73,7 @@ A beautiful, real-time multiplayer drawing and guessing game built with React, T
 
 3. **Open your browser** and navigate to `http://localhost:5173`
 
-## 🎮 How to Play
+## How to Play
 
 1. **Create or Join a Room**:
 
@@ -94,7 +94,7 @@ A beautiful, real-time multiplayer drawing and guessing game built with React, T
    - **Drawer Bonus**: 25 points per correct guess
    - **Time Bonus**: Faster guesses earn more points
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 ### Frontend
 
@@ -111,7 +111,7 @@ A beautiful, real-time multiplayer drawing and guessing game built with React, T
 - **Socket.IO** for WebSocket connections
 - **CORS** enabled for cross-origin requests
 
-## 🎯 Game Rules
+## Game Rules
 
 1. **Minimum Players**: 2 players required to start
 2. **Round Duration**: 60 seconds for drawing
@@ -122,7 +122,7 @@ A beautiful, real-time multiplayer drawing and guessing game built with React, T
    - Drawing successfully: 25 points per correct guess
 6. **Disconnections**: Players can rejoin, but rooms are cleaned up when empty
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -136,7 +136,7 @@ VITE_WS_URL=http://localhost:3001
 
 The server runs on port 3001 by default. You can change this by setting the `PORT` environment variable.
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -144,6 +144,6 @@ The server runs on port 3001 by default. You can change this by setting the `POR
 4. Test thoroughly
 5. Submit a pull request
 
-## 🎉 Have Fun!
+## Have Fun!
 
 Enjoy playing Draw & Guess with your friends! The game is designed to be fun, engaging, and easy to use. Happy drawing and guessing! 🎨✨
