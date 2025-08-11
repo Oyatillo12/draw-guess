@@ -1,15 +1,23 @@
-import { Room } from "@/pages/Room";
-import { Lobby } from "@/pages/Lobby";
 import { createBrowserRouter } from "react-router-dom";
+import { Suspense } from "react";
+import { Lobby, Room } from "@/pages/lazy";
+import { Loading } from "@/shared/components";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Lobby />,
-    errorElement: <div>Error</div>,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Lobby />
+      </Suspense>
+    ),
   },
   {
     path: "/room/:code",
-    element: <Room />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Room />
+      </Suspense>
+    ),
   },
 ]);

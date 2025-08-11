@@ -4,14 +4,13 @@ import { RoomHeader } from "./ui/RoomHeader";
 import { PlayerList } from "./ui/PlayersList";
 import { Chat } from "./ui/Chat";
 import { WordChooser } from "./ui/WordChooser";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useSocket from "@/shared/hooks/useSocket";
 import { useRoomStore } from "./model/room.store";
 import { GameEndScreen } from "./ui/GameEnd/GameEnd";
 import { ChatType, GamePhase } from "@/shared/constants";
 import { useGameStore } from "@/shared/game.store";
 import { useShallow } from "zustand/shallow";
-// import { useRoomSocket } from "./hooks/useRoomSocket";
 import { useEffect, useMemo } from "react";
 import type { Player } from "@/shared/types";
 import { MAX_ROUNDS } from "./constants";
@@ -21,6 +20,7 @@ export const Room = () => {
   const { code } = useParams();
   const roomCode = code || "";
   const { socketRef } = useSocket();
+  const navigate = useNavigate();
 
   const playerName = useGameStore((state) => state.player?.name ?? "");
   const {
@@ -65,6 +65,9 @@ export const Room = () => {
       (res: JoinRoomResponse) => {
         if (res?.error) {
           alert(res.error);
+
+          navigate("/", { replace: true });
+
           return;
         }
       }
@@ -205,6 +208,7 @@ export const Room = () => {
         phase: GamePhase.Waiting,
       })
     );
+
     return () => {
       socket.off("connect", handleConnect);
       socket.off("disconnect", handleDisconnect);
