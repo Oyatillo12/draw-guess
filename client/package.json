@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "seo": "node scripts/generate-sitemap.js",
+    "deploy": "npm run seo && vite build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
@@ -16,6 +18,7 @@
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.62.0",
     "react-router-dom": "^7.8.0",
+    "sitemap": "^8.0.0",
     "socket.io-client": "^4.8.1",
     "tailwind-merge": "^3.3.1",
     "zustand": "^5.0.7"
