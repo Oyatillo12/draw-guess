@@ -5,7 +5,7 @@ import { PlayerList } from "./ui/PlayersList";
 import { Chat } from "./ui/Chat";
 import { WordChooser } from "./ui/WordChooser";
 import { useNavigate, useParams } from "react-router-dom";
-import useSocket from "@/shared/hooks/useSocket";
+import useSocket from "@/shared/components/hooks/useSocket";
 import { useRoomStore } from "./model/room.store";
 import { GameEndScreen } from "./ui/GameEnd/GameEnd";
 import { ChatType, GamePhase } from "@/shared/constants";
@@ -15,7 +15,6 @@ import { useEffect, useMemo } from "react";
 import type { Player } from "@/shared/types";
 import { MAX_ROUNDS } from "./constants";
 import type { JoinRoomResponse } from "./model/types";
-import { useSEO } from "../../shared/hooks/useSeo";
 
 export const Room = () => {
   const { code } = useParams();
@@ -53,13 +52,6 @@ export const Room = () => {
       setState: state.setState,
     }))
   );
-
-  useSEO({
-    title: "Draw & Guess Room – Play with Friends in Real-Time!",
-    description:
-      "Join a live Draw & Guess room and challenge friends! Draw, guess, and have fun together. No downloads needed – play instantly!",
-    url: `https://draw-guess-pied.vercel.app/room/${roomCode}`,
-  });
 
   const currentPlayerId = playerId || socketRef.current?.id || "";
 

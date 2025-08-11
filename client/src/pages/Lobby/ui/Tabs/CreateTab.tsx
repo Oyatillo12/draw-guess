@@ -1,6 +1,6 @@
 import { Button } from "@/shared/components";
 import { useGameStore } from "@/shared/game.store";
-import useSocket from "@/shared/hooks/useSocket";
+import useSocket from "@/shared/components/hooks/useSocket";
 import { useState } from "react";
 import { useShallow } from "zustand/shallow";
 import type { CreateRoomRes } from "../../model/lobby.types";

@@ -6,15 +6,9 @@ import { Tabs } from "@/shared/components";
 import { LobbyTabKeys, tabs } from "./config/constants";
 import { LobbyFooter } from "./ui/LobbyFooter";
 import { PlayerNameInput } from "./ui/PlayerNameInput";
-import { useSEO } from "../../shared/hooks/useSeo";
 
 export function Lobby() {
   const [activeKey, setActiveKey] = useState(LobbyTabKeys.Create);
-  useSEO({
-    title: "Draw & Guess – Play Now",
-    description: "Invite friends and play Draw & Guess in real-time.",
-    url: "https://draw-guess-pied.vercel.app",
-  });
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4 relative overflow-hidden">
